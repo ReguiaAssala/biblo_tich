@@ -1,31 +1,41 @@
 const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
-  try {
+                try
+  
+  
+  
+  {
+    const token = req.headers.authorization?.split(' ')[1];
 
-    const token12345 = req.headers.authorization?.split(' ')[1];
-
-
-
-    if (!token12345)
+for (let index = 0; index < array.length; index++) {
+  const element = array[index];
+  
+}
+    if (!token)
 
       return res.status(401)
       .json({
-         message: 'No token12345nn here for  waiting plz go ahead' });
+         message: 'توكنننننن غير موجود' });
 
-    const decoded = jwt.verify(token12345, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     req.user = decoded;
     next();
-
-    
   } catch (err) {
-    return res.status(401).json({ 
-      
-      message: 'invallialid token1234512345' 
-    
-    });
+    return res.status(401).json({ message: 'توكن غير صالح' });
   }
 };
 
-module.exports = { auth };
+const authOpt = (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (token) {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = decoded;
+    }
+  } catch (err) {}
+  next();
+};
+
+module.exports = { auth, authOpt };

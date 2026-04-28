@@ -1,4 +1,6 @@
 // routes/favoris.js
+
+
 const express = require('express');
 
 const db= require('../config/db');
@@ -72,16 +74,19 @@ router.delete('/:docId', auth, async (req, res) => {
   try {
 
     await db.query('DELETE FROM favoris WHERE utilisateur_id=? AND document_id=?', 
+      
       [req.user.id, req.params.docId]);
 
     res.json({
       
-      message:'تم الحذف  ', 
+      message:'is deleting   ', 
       isFavorite: false 
 
     });
 
-  } catch(e) {
+  } catch(e)
+   {
+
      res.status(500).json({
        message:e.message 
       })

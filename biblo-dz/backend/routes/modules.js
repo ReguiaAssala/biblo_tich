@@ -2,9 +2,6 @@
 const express = require('express');
 
 const db = require('../config/db');
-const { auth } = require('../middleware/auth');
-
-const { isAdmin }= require('../middleware/isAdmin');
 const router= express.Router();
 
 router.get('/', async (req, res) => {
@@ -90,7 +87,7 @@ router.get('/:id/documents', async (req, res) => {
        popular:'d.nb_telechargements DESC', noted:'d.note_moyenne DESC', recent:'d.created_at DESC' 
       };
 
-    let sql=`SELECT d.*,u.nom AS uploader_nom,u.prenom AS uploader_prenom FROM documents d LEFT JOIN utilisateurs u ON u.id=d.uploader_id WHERE d.module_id=? AND d.approuve=1`;
+    let sql=`SELECT d.* FROM documents d WHERE d.module_id=? AND d.approuve=1`;
     const p=[req.params.id];
 
     if (type){
@@ -115,66 +112,6 @@ router.get('/:id/documents', async (req, res) => {
       });
     
     }
-});
-
-router.post('/', auth, isAdmin, async (req, res) => {
-
-  try {
-
-    const {
-       specialite_id, nom, slug, description, niveau 
-      } =
-       req.body;
-    if (!specialite_id||!nom||!slug)
-       return
-      
-    
-    res.status(400).json({
-      
-      
-      message:'تقيد بمب ا هو     ' 
-    
-    })
-    ;
-
-    const [r] = await db.query('INSERT INTO modules (specialite_id,nom,slug,description,niveau) VALUES(?,?,?,?,?)',
-      [specialite_id, nom, slug, description||null, niveau||'L1']);
-
-    res.status(201).json({
-      
-      
-      id:r.insertId, message:' إضافة  ' }
-    );
-
-  } catch(e) 
-  { 
-    res.status(500).json({
-
-     message:e.message 
-    });
-   }
-});
-
-router.put('/:id', auth, isAdmin, async (req, res) => {
-  try {
-
-    const {
-       nom, description, niveau
-       } =
-
-
-        req.body;
-
-    await db.query('UPDATE modules SET nom=?,description=?,niveau=? WHERE id=?', [nom, description, niveau, req.params.id]);
-    res.json({ message:'تم التحديث ✅' });
-  } catch(e) { res.status(500).json({ message:e.message }); }
-});
-
-router.delete('/:id', auth, isAdmin, async (req, res) => {
-  try {
-    await db.query('DELETE FROM modules WHERE id=?', [req.params.id]);
-    res.json({ message:'تم الحذف' });
-  } catch(e) { res.status(500).json({ message:e.message }); }
 });
 
 module.exports = router;

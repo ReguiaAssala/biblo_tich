@@ -2,37 +2,52 @@
 const rateLimit = require('express-rate-limit');
 
 
-const msg = (m) => ({
-   message: m 
-  
-  
-  });
+const globalLimiter = rateLimit({
 
-const globalLimiter 
-= rateLimit({
-  windowMs:
-   15 * 60 * 1000, max: 300,
-  message:
-   msg(" مجموعة من الطلبات "),
+  windowMs: 15 * 60 * 1000,
+
+  max: 300,
+
+
+  message: 
+
+  {
+
+     message: '    a lot Prosses to get data ' 
+     
+    },
 });
 
 const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, max: 20,
 
-  message: msg('   waiting plzz'),
+  windowMs: 15 * 60 * 1000,
+
+  max: 20,
+
+  message: {
+
+     message: ' try agin another '
+    
+    },
 });
 
+const uploadLimiter = rateLimit({
 
-const uploadLimiter =
- rateLimit({
-  windowMs: 
-  60 * 60 * 1000,
-   max: 10,
-  message: msg('   العديد من المحاولات'),
+  windowMs: 60 * 60 * 1000,
+
+  max: 10,
+
+  message: {
+
+     message: 'محاولات رفع كثيرة، حاول لاحقاً'
+
+     },
+
 });
+
 
 module.exports = {
-  
-   globalLimiter, authLimiter, uploadLimiter 
+
+   globalLimiter, authLimiter, uploadLimiter
   
   };

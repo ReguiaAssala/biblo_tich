@@ -8,9 +8,8 @@
 
 
 
-
-
   <link rel="stylesheet" href="css/style.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
@@ -26,40 +25,56 @@
   <nav class="nav container">
 
     <a class="nav__logo" onclick="showPage('home')">
-      <span class="nav__logo-text"> مكنبة تعلم </span>
+      <span class="nav__logo-text">
+        
+        
+        
+        مكتبة خاص بالطلاب الجامعيين
+
+
+      </span>
     </a>
 
-    <ul class="nav__links" id="navLinks">
-      <li><a class="nav__link active" onclick="showPage('home')"       data-page="home">       <i class="fas fa-home"></i> الرئيسية</a></li>
-      <li><a class="nav__link"        onclick="showPage('specialites')" data-page="specialites"><i class="fas fa-graduation-cap"></i> التخصصات</a></li>
-      <li><a class="nav__link"        onclick="showPage('search')"      data-page="search">     <i class="fas fa-search"></i> البحث</a></li>
-      <li><a class="nav__link"        onclick="showPage('upload')"      data-page="upload">     <i class="fas fa-upload"></i> رفع ملف</a></li>
+                           <ul class="nav__links" id="navLinks">
+
+      <li>
+        
+        <a class="nav__link active" onclick="showPage('home')"   data-page="home">  
+           الرئيسية</a>
+            
+            
+            
+            </li>
+      <li>
+        
+        <a class="nav__link" onclick="showPage('specialites')" data-page="specialites">
+           التخصصات</a></li>
+      <li>
+
+        
+
+        <a class="nav__link" onclick="showPage('search')"      data-page="search">     
+          <i class="fas fa-search"></i> البحث</a></li>
+      <li>
+
+        
+
+        <a class="nav__link" onclick="showPage('upload')"      data-page="upload">     
+          <i class="fas fa-upload"></i> رفع ملف</a></li>
     </ul>
 
-    <div class="nav__auth" id="navAuth">
-      <button class="btn btn--ghost" onclick="openModal('loginModal')">دخول</button>
-      <button class="btn btn--primary" onclick="openModal('registerModal')">تسجيل</button>
-    </div>
 
-    <div class="nav__user" id="navUser" style="display:none">
-      <button class="nav__user-btn" id="userBtn" onclick="toggleDropdown()">
-
-
-        <i class="fas fa-chevron-down" style="font-size:.65rem;color:#94a3b8"></i>
-      </button>
-      <div class="dropdown" id="userDropdown">
-        <a class="dropdown__item" onclick="showPage('profile');closeDropdown()"><i class="fas fa-user"></i> ملفي</a>
-        <a class="dropdown__item" onclick="showPage('favorites');closeDropdown()"><i class="fas fa-heart"></i> المفضلة</a>
-        <a class="dropdown__item" onclick="showPage('my-uploads');closeDropdown()"><i class="fas fa-file-upload"></i> وثائقي</a>
-        <a class="dropdown__item" id="adminLink" onclick="showPage('admin');closeDropdown()" style="display:none"><i class="fas fa-cogs"></i> الإدارة</a>
-        <div class="dropdown__divider"></div>
-        <a class="dropdown__item dropdown__item--danger" onclick="logout()">
-          <i class="fas fa-sign-out-alt"></i> خروج</a>
-      </div>
-    </div>
 
     <button class="nav__hamburger" id="hamburger" onclick="toggleMobile()">
-      <span></span><span></span><span></span>
+      <span>
+        
+      </span>
+      <span>
+
+      </span>
+      <span>
+
+      </span>
     </button>
   </nav>
 </header>
@@ -78,11 +93,11 @@
   <section class="hero">
     <div class="hero__bg"></div>
     <div class="container hero__content">
-      <p class="hero__sub">آالامتحانات لجميع التخصصات </p>
+      <p class="hero__sub">الامتحانات لجميع التخصصات </p>
 
       <div class="hero__search">
         <i class="fas fa-search hero__search-icon"></i>
-        <input id="heroQ" type="text" placeholder="ابحث عن وحدة أو وثيقة..." onkeydown="if(event.key==='Enter')heroSearch()">
+        <input id="heroQ" type="text" placeholder="ابحث عن وحدة أو وثيقة" onkeydown="if(event.key==='Enter')heroSearch()">
         <button class="btn btn--primary" onclick="heroSearch()">بحث</button>
       </div>
 
@@ -91,17 +106,29 @@
           
           
           
-          <b id="hs-docs">25+</b><span>وثيقة</span></div>
+          <b id="hs-docs">25+</b>
+          <span>وثيقة</span>
+        
+        
+        </div>
+
         <div class="hero__stat">
           
           
           
-          <b>18</b><span>تخصص</span></div>
+          <b>18</b>
+          <span>تخصص</span>
+        
+        
+        </div>
+
         <div class="hero__stat">
-          
-          
-          
-          <b id="hs-users">180</b><span>طالب</span></div>
+
+
+          <b id="hs-mods">—</b>
+          <span>وحدة</span>
+        
+        </div>
         <div class="hero__stat">
           
           
@@ -119,17 +146,39 @@
 
 
   <section class="section container">
+
     <div class="section__head">
       <h2 class="section__title">التخصصات</h2>
-      <a class="section__more" onclick="showPage('specialites')">عرض الكل <i class="fas fa-arrow-left"></i></a>
+      
+      <a class="section__more" onclick="showPage('specialites')"> 
+        عرض الكل  
+
+
+
+
+        
+        <i class="fas fa-arrow-left"></i></a>
     </div>
     <div class="spec-grid" id="homeSpecGrid">
       <div class="skeleton-grid">
-        <div class="skeleton-card"></div><div class="skeleton-card"></div>
-        <div class="skeleton-card"></div><div class="skeleton-card"></div>
-        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card">
+
+        </div><div class="skeleton-card"></div>
+        <div class="skeleton-card">
+
+
+        </div><div class="skeleton-card"></div>
+        <div class="skeleton-card">
+
+        </div><div class="skeleton-card">
+
+
+
+
+        </div>
       </div>
     </div>
+
   </section>
 
 
@@ -137,17 +186,26 @@
 
 
   <section class="section container">
+
     <div class="section__head">
-      <h2 class="section__title"><i class="fas fa-fire" style="color:#f97316"></i> الأكثر تحميلاً</h2>
+
+      <h2 class="section__title"><i class="fas fa-fire" style="color:#f97316">
+
+      </i> الأكثر تحميلاً</h2>
+
     </div>
+
     <div class="docs-grid" id="featuredDocs">
+
       <div class="loading-box"><div class="spinner"></div></div>
     </div>
+
   </section>
 
 </div>
 
 <div class="page" id="page-specialites">
+
   <div class="container" style="padding-top:2rem;padding-bottom:4rem">
     <div class="page-header">
       <h1 class="page-header__title">جميع التخصصات</h1>
@@ -161,15 +219,29 @@
 
 
 <div class="page" id="page-modules">
+
   <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
-    <nav class="breadcrumb" id="modBreadcrumb"></nav>
+    <nav class="breadcrumb" id="modBreadcrumb">
+
+    </nav>
     <div class="page-header">
-      <h1 class="page-header__title" id="modTitle"></h1>
-      <p class="page-header__sub" id="modSub"></p>
+      <h1 class="page-header__title" id="modTitle">
+
+      </h1>
+      <p class="page-header__sub" id="modSub">
+
+      </p>
     </div>
-    <div class="level-tabs" id="levelTabs"></div>
+    <div class="level-tabs" id="levelTabs">
+
+    </div>
     <div class="modules-grid" id="modulesGrid">
-      <div class="loading-box" style="grid-column:1/-1"><div class="spinner"></div></div>
+      <div class="loading-box" style="grid-column:1/-1">
+        <div class="spinner">
+
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -183,28 +255,64 @@
 
 <div class="page" id="page-documents">
   <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
-    <nav class="breadcrumb" id="docBreadcrumb"></nav>
+    <nav class="breadcrumb" id="docBreadcrumb">
+
+    </nav>
     <div class="page-header">
-      <h1 class="page-header__title" id="docTitle"></h1>
-      <p class="page-header__sub" id="docSub"></p>
+      <h1 class="page-header__title" id="docTitle">
+
+      </h1>
+      <p class="page-header__sub" id="docSub">
+
+
+
+      </p>
     </div>
+
     <div class="filter-bar">
       <div class="filter-bar__types" id="typeFilters">
+
         <button class="chip active" onclick="filterType('',this)">الكل</button>
+
         <button class="chip" onclick="filterType('cours',this)">محاضرات</button>
+        
         <button class="chip" onclick="filterType('td',this)">TD</button>
-        <button class="chip" onclick="filterType('tp',this)">TP</button>
+
+        <button class="chip" onclick="filterType('tp',this)">TP</button
+          >
         <button class="chip" onclick="filterType('examen',this)">امتحانات</button>
+
         <button class="chip" onclick="filterType('correction',this)">تصحيحات</button>
+
+
+
+
       </div>
       <select class="select" onchange="sortDocs(this.value)">
+
+
         <option value="recent">الأحدث</option>
+
         <option value="popular">الأكثر تحميلاً</option>
+
         <option value="noted">الأعلى تقييماً</option>
+
+
       </select>
+
+
     </div>
     <div class="docs-grid" id="docsGrid">
-      <div class="loading-box" style="grid-column:1/-1"><div class="spinner"></div></div>
+
+      <div class="loading-box" style="grid-column:1/-1">
+
+        <div class="spinner">
+
+
+
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -213,17 +321,32 @@
 
 
 <div class="page" id="page-search">
+
   <div class="container" style="padding-top:2rem;padding-bottom:4rem">
     <div class="page-header">
+
       <h1 class="page-header__title">البحث المتقدم</h1>
-    </div>
+
+                                                 </div>
+
     <div class="search-panel">
+
       <div class="search-panel__row">
         <input class="input" id="searchQ" type="text" placeholder="ابحث عن محاضرة، امتحان، وحدة..." onkeydown="if(event.key==='Enter')doSearch()">
         <button class="btn btn--primary" onclick="doSearch()"><i class="fas fa-search"></i> بحث</button>
       </div>
-      <div class="search-panel__filters">
-        <select class="select" id="searchSpec"><option value="">كل التخصصات</option></select>
+      
+
+                                                        <div class="search-panel__filters">
+
+        <select class="select" id="searchSpec">
+          
+          
+          
+          <option value="">كل التخصصات</option>
+        
+        </select>
+
         <select class="select" id="searchType">
           <option value="">كل الأنواع</option>
           <option value="cours">محاضرة</option>
@@ -231,15 +354,34 @@
           <option value="tp">TP</option>
           <option value="examen">امتحان</option>
           <option value="correction">تصحيح</option>
+          <option value="rapport">تقرير</option>
+          <option value="these">أطروحة</option>
+          <option value="resume">ملخص</option>
         </select>
+
+
+
+
+
         <select class="select" id="searchLevel">
           <option value="">كل المستويات</option>
           <option value="L1">L1</option>
+
           <option value="L2">L2</option>
+
+
           <option value="L3">L3</option>
+
           <option value="M1">M1</option>
+
           <option value="M2">M2</option>
+
           <option value="Doctorat">دكتوراه</option>
+
+
+
+
+
         </select>
       </div>
     </div>
@@ -251,59 +393,122 @@
 
 
 <div class="page" id="page-upload">
+
+
+
   <div class="container" style="padding-top:2rem;padding-bottom:4rem;max-width:700px">
+
     <div class="page-header">
+
+
       <h1 class="page-header__title">رفع وثيقة</h1>
+
       <p class="page-header__sub">شارك محاضرتك مع آلاف الطلاب</p>
+
+
     </div>
 
 
 
     <div class="card">
+
+
+
+
+
       <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
-        <i class="fas fa-file-pdf drop-zone__icon"></i>
-        <p class="drop-zone__text">اسحب ملف PDF هنا أو انقر للاختيار</p>
-        <p class="drop-zone__hint">الحد الأقصى0MB</p>
-        <div class="drop-zone__name" id="dropName"></div>
+
+
+
+
+        <p class="drop-zone__text" >اسحب  ملف PDF هن انقر للاختيار</p>
+
+
+        <p class="drop-zone__hint">الحد الأقصى   50MB</p>
+
+        <div class="drop-zone__name" id="dropName">
+
+
+
+        </div>
+
       </div>
       <input type="file" id="fileInput" accept="application/pdf" style="display:none" onchange="onFileSelect(this)">
 
       <div class="form-grid">
+
         <div class="form-group form-group--full">
-          <label class="label">عنوان الوثيقة *</label>
-          <input class="input" id="upTitle" placeholder="مثال: محاضرات الخوارزميات S3">
+
+          <label class="label">عنوان الوثيقة 
+
+
+          </label>
+
+          <input class="input" id="upTitle" placeholder="مثال:  algorithem  S3">
         </div>
         <div class="form-group">
-          <label class="label">التخصص *</label>
+          <label class="label">التخصص
+
+
+          </label>
+
           <select class="select" id="upSpec" onchange="loadModsForUpload()">
+
             <option value="">اختر التخصص</option>
+
           </select>
         </div>
+
         <div class="form-group">
-          <label class="label">الوحدة *</label>
-          <select class="select" id="upModule"><option value="">اختر التخصص أولاً</option></select>
+
+
+          <label class="label">الوحدة 
+
+          </label>
+
+          <select class="select" id="upModule">
+            
+            
+            
+            <option value="">اختر التخصص أولاً</option></select>
         </div>
         <div class="form-group">
-          <label class="label">نوع الوثيقة *</label>
+
+          <label class="label">نوع الوثيقة </label>
+
           <select class="select" id="upType">
+
             <option value="cours">محاضرة (Cours)</option>
             <option value="td">تمارين (TD)</option>
             <option value="tp">أعمال تطبيقية (TP)</option>
             <option value="examen">امتحان</option>
             <option value="correction">تصحيح</option>
+            <option value="rapport">تقرير</option>
             <option value="these">أطروحة</option>
             <option value="resume">ملخص</option>
           </select>
         </div>
         <div class="form-group">
+
           <label class="label">المستوى</label>
+
           <select class="select" id="upLevel">
+
             <option value="L1">L1</option><option value="L2">L2</option>
             <option value="L3">L3</option><option value="M1">M1</option>
             <option value="M2">M2</option><option value="Doctorat">دكتوراه</option>
           </select>
         </div>
+
+
+
+
+
+
+
         <div class="form-group">
+
+
           <label class="label">الأستاذ</label>
           <input class="input" id="upAuthor" placeholder="اسم الأستاذ">
         </div>
@@ -321,104 +526,32 @@
         </div>
         <div class="form-group form-group--full">
           <button class="btn btn--primary btn--full" id="upBtn" onclick="submitUpload()">
-            <i class="fas fa-upload"></i> رفع الوثيقة
+           رفع الوثيقة
           </button>
-          <p class="form-hint"><i class="fas fa-info-circle"></i> تتم مراجعة الوثائق قبل نشرها</p>
-        </div>
+`        </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   </div>
 </div>
 
 
-<div class="page" id="page-favorites">
-  <div class="container" style="padding-top:2rem;padding-bottom:4rem">
-    <div class="page-header">
-      <h1 class="page-header__title"><i class="fas fa-heart" style="color:#ef4444"></i> المفضلة</h1>
-    </div>
-    <div class="docs-grid" id="favsGrid">
-      <div class="loading-box" style="grid-column:1/-1"><div class="spinner"></div></div>
-    </div>
-  </div>
-</div>
 
-
-<div class="page" id="page-my-uploads">
-  <div class="container" style="padding-top:2rem;padding-bottom:4rem">
-    <div class="page-header">
-      <h1 class="page-header__title">وثائقي المرفوعة</h1>
-    </div>
-    <div class="docs-grid" id="myUploadsGrid">
-      <div class="loading-box" style="grid-column:1/-1"><div class="spinner"></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     PAGE: PROFILE
-═══════════════════════════════════════ -->
-<div class="page" id="page-profile">
-  <div class="container" style="padding-top:2rem;padding-bottom:4rem;max-width:640px">
-    <div class="profile-card card">
-      <div class="profile-card__top">
-        <div>
-          <h2 class="profile-name" id="profileName"></h2>
-          <span class="badge" id="profileBadge">طالب</span>
-        </div>
-      </div>
-      <div class="profile-stats">
-        <div class="profile-stat"><b id="ps-up">—</b><span>وثيقة رفعتها</span></div>
-        <div class="profile-stat"><b id="ps-dl">—</b><span>تحميل</span></div>
-        <div class="profile-stat"><b id="ps-fav">—</b><span>مفضلة</span></div>
-      </div>
-      <div class="form-grid" style="margin-top:1.5rem">
-        <div class="form-group">
-          <label class="label">الاسم</label>
-          <input class="input" id="profNom">
-        </div>
-        <div class="form-group">
-          <label class="label">اللقب</label>
-          <input class="input" id="profPrenom">
-        </div>
-        <div class="form-group">
-          <label class="label">الجامعة</label>
-          <input class="input" id="profUniv">
-        </div>
-        <div class="form-group">
-          <label class="label">الولاية</label>
-          <input class="input" id="profWilaya">
-        </div>
-        <div class="form-group form-group--full">
-          <button class="btn btn--primary" onclick="saveProfile()"><i class="fas fa-save"></i> حفظ التعديلات</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     PAGE: ADMIN
-═══════════════════════════════════════ -->
-<div class="page" id="page-admin">
-  <div class="admin-layout">
-    <aside class="admin-sidebar">
-      <p class="admin-sidebar__label">لوحة التحكم</p>
-      <a class="admin-sidebar__link active" onclick="adminSection('stats',this)"><i class="fas fa-chart-bar"></i> إحصاءات</a>
-      <a class="admin-sidebar__link" onclick="adminSection('pending',this)"><i class="fas fa-clock"></i> في الانتظار</a>
-      <a class="admin-sidebar__link" onclick="adminSection('docs',this)"><i class="fas fa-file-pdf"></i> كل الوثائق</a>
-      <a class="admin-sidebar__link" onclick="adminSection('users',this)"><i class="fas fa-users"></i> المستخدمون</a>
-    </aside>
-    <div class="admin-content" id="adminContent">
-      <div class="loading-box"><div class="spinner"></div></div>
-    </div>
-  </div>
-</div>
 
 </main>
 
-<!-- ═══════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════ -->
 <footer class="footer">
   <div class="container footer__grid">
     <div>
@@ -432,9 +565,9 @@
     </div>
     <div>
       <p class="footer__heading">روابط</p>
+      
       <a class="footer__link" onclick="showPage('home')">الرئيسية</a>
       <a class="footer__link" onclick="showPage('upload')">رفع وثيقة</a>
-      <a class="footer__link" onclick="openModal('registerModal')">إنشاء حساب</a>
     </div>
     <div>
      
@@ -444,62 +577,9 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════
-     MODALS
-═══════════════════════════════════════ -->
 
-<!-- Login -->
-<div class="modal-overlay" id="loginModal" onclick="if(event.target===this)closeModal('loginModal')" style="display:none">
-  <div class="modal">
-    <button class="modal__close" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button>
-    <div class="modal__icon">🔐</div>
-    <h2 class="modal__title">أهلاً بعودتك</h2>
-    <p class="modal__sub">سجّل دخولك للوصول إلى جميع الوثائق</p>
-    <div class="form-group">
-      <label class="label">البريد الإلكتروني</label>
-      <input class="input" id="loginEmail" type="email" placeholder="email@exemple.com">
-    </div>
-    <div class="form-group">
-      <label class="label">كلمة المرور</label>
-      <input class="input" id="loginPwd" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <button class="btn btn--primary btn--full" onclick="doLogin()"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</button>
-    <p class="modal__switch">ليس لديك حساب؟ <a onclick="switchModal('loginModal','registerModal')">أنشئ حساباً</a></p>
-  </div>
-</div>
 
-<!-- Register -->
-<div class="modal-overlay" id="registerModal" onclick="if(event.target===this)closeModal('registerModal')" style="display:none">
-  <div class="modal">
-    <button class="modal__close" onclick="closeModal('registerModal')"><i class="fas fa-times"></i></button>
-    <h2 class="modal__title">حساب جديد</h2>
-    <p class="modal__sub">انضم إلى مجتمع الطلاب الجزائريين</p>
-    <div class="form-grid" style="margin-bottom:0">
-      <div class="form-group">
-        <label class="label">الاسم *</label>
-        <input class="input" id="regNom" placeholder="الاسم">
-      </div>
-      <div class="form-group">
-        <label class="label">اللقب *</label>
-        <input class="input" id="regPrenom" placeholder="اللقب">
-      </div>
-      <div class="form-group form-group--full">
-        <label class="label">البريد الإلكتروني *</label>
-        <input class="input" id="regEmail" type="email" placeholder="email@exemple.com">
-      </div>
-      <div class="form-group form-group--full">
-        <label class="label">الجامعة</label>
-        <input class="input" id="regUniv" placeholder="جامعة الجزائر...">
-      </div>
-      <div class="form-group form-group--full">
-        <label class="label">كلمة المرور * <small>(8 أحرف على الأقل)</small></label>
-        <input class="input" id="regPwd" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doRegister()">
-      </div>
-    </div>
-    <button class="btn btn--primary btn--full" onclick="doRegister()"><i class="fas fa-user-plus"></i> إنشاء الحساب</button>
-    <p class="modal__switch">لديك حساب؟ <a onclick="switchModal('registerModal','loginModal')">سجّل دخولك</a></p>
-  </div>
-</div>
+
 
 <script src="js/app.js"></script>
 </body>

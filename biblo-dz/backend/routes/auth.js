@@ -1,54 +1,72 @@
-// middleware/auth.js — JWT Verification
-// const jwt = require('jsonwebtoken');
+/**
+ * routes/auth.js — Authentication Routes
+ * NOTE: Login/Register removed from frontend as requested
+ */
 
-// const auth = (req, res, next) => {
 
-
-//   const h = req.headers.authorization;
-
-//   if (!h || !h.startsWith('Bearer
-//  '))
-//     return res.status(401).json({ message: '  no enter here
-// ' });
-//   try {
-//     req.user = jwt.verify(h.split(' ')[1], process.env.JWT_SECRET);
-//     next();
-//   } catch(e) {
-//     return res.status(401).json({
-//  message: 'ة إعادة  الدخول' 
-// });
-//   }
-// };
-
-// // Optional: doesn't block if no token
-// const authOpt = (req, res, next) => {
-//   const h = req.headers.authorization;
-//   if (h?.startsWith('Bearer ')) {
-
-//     try {
-//  req.user = jwt.verify(h.split(' ')[1], process.env.JWT_SECRET);
-//  }
-//  catch(_) {}
-//   }
-//   next();
-// };
-
-// module.exports = { auth, authOpt };
 const express = require('express');
 
+
+const bcryptjs = require('bcryptjs');
+
+
+const jwt = require('jsonwebtoken');
+
+
+const db = require('../config/db');
+
+
+const { auth } = require('../middleware/auth');
 
 const router = express.Router();
 
 
-// tesst
+
+// Health check
 router.get('/', (req, res) => {
 
-  res.json({
-     message: "Auth route is turn yep " 
-    }
-  );
-}
-);
+  res.json({ message: 'Auth API  is running' });
 
+});
+
+// Get current user yeahh
+router.get('/me', auth, async (req, res) => {
+  try {
+
+    const [r] = await db.query(
+
+      'SELECT id, nom, prenom, email, role, universite FROM utilisateurs WHERE id = ?',
+
+      [req.user.id]
+
+    );
+
+
+    if (!r.length) 
+
+      
+      return res.status(404).json(
+
+        { 
+          message: 'user not found '
+        
+        
+        }
+
+      
+      );
+
+
+    res.json(r[0]);
+  } catch (e) {
+
+    res.status(500).json(
+      {
+
+       message: e.message
+        
+      });
+  }
+});
 
 module.exports = router;
