@@ -3,8 +3,7 @@
 
 
 ---
-![Alternative Text](.\biblo-dz\frontend\imagesSCreenshots\p1.png)
-
+![Alternative Text](biblo-dz/frontend/imagesSCreenshots/p1.png)
 digital academic library platform  designed to provide thousands of university students with free access to course materials, exercises, examinations, and academic documents across all university specializations. The platform enables students to upload, download, rate, and organize academic PDF documents in a structured, searchable repository
 ##  خطوات التشغيل
 
